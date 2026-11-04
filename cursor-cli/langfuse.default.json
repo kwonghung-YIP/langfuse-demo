@@ -1,0 +1,6 @@
+{
+    "enable": true,
+    "debug": true,
+    "tags": ["my-project","abc-provider"],
+    "metadata": "my metadata..."
+}

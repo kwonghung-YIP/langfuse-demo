@@ -1,0 +1,56 @@
+include:
+  - langfuse-compose.yml
+
+services:
+
+  cursor-cli:
+    build:
+      context: ./cursor-cli
+    command: /bin/bash -c "sleep infinity"
+    profiles:
+      - cursor
+    depends_on:
+      langfuse-web:
+        condition: service_started
+
+    environment:
+      CURSOR_API_KEY: ${CURSOR_API_KEY:-}
+      LANGFUSE_BASE_URL: http://langfuse-web:3000
+
+    volumes:
+      - ./project-settings/cursor/.cursor:/my-project/.cursor
+
+    secrets:
+      - langfuse-secret-key
+      - langfuse-public-key
+
+  copilot-cli:
+    build:
+      context: ./copilot-cli
+    command: /bin/bash -c "sleep infinity"
+    profiles:
+      - copilot
+    depends_on:
+      - langfuse-web
+      
+    environment:
+      COPILOT_OTEL_ENABLED: true
+      OTEL_EXPORTER_OTLP_ENDPOINT: http://langfuse-web:3000/api/public/otel
+      #OTEL_EXPORTER_OTLP_HEADERS: Authorization=Basic <<base64-$LANGFUSE_PUBLIC_KEY:$LANGFUSE_SECRET_KEY>>,x-langfuse-ingestion-version=4"
+      # opt-in: include prompts, responses, and tool arguments
+      OTEL_INSTRUMENTATION_GENAI_CAPTURE_MESSAGE_CONTENT: true
+      COPILOT_MODEL: gpt-6-luna
+      GH_TOKEN: ${GH_TOKEN:-}
+
+    volumes:
+      - ./project-settings/copilot/.github:/my-project/.github
+
+    secrets:
+      - langfuse-secret-key
+      - langfuse-public-key
+
+secrets:
+  langfuse-secret-key:
+    file: ./secrets/langfuse-secret-key.txt
+  langfuse-public-key:
+    file: ./secrets/langfuse-public-key.txt
