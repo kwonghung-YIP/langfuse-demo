@@ -76,9 +76,9 @@ Because Cursor CLI does not natively support OTLP, Langfuse provides a [Cursor p
 
 10. Run the [cursor-model-pricing](https://github.com/kwonghung-YIP/langfuse-demo/blob/main/project-settings/cursor/.cursor/agents/cursor-model-pricing.md) sub-agent in the **`/my-project`** workspace and check the traces.
 
-    ![Run the sub-agent cursor-model-pricing](./doc/cursor/run-subagent-cursor-model-pricing.png)
+    ![Run the sub-agent cursor-model-pricing](./cursor/run-subagent-cursor-model-pricing.png)
 
-    ![Check the trace in Langfuse console](./doc/cursor/run-sunagent-cursor-model-pricing-trace.png)
+    ![Check the trace in Langfuse console](./cursor/run-sunagent-cursor-model-pricing-trace.png)
 
 11. Langfuse also comes with a built-in token usage and cost dashboard.
 
