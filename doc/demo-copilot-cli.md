@@ -27,7 +27,7 @@ Since Copilot CLI natively support OTLP, therefore we only need to assign the OT
    git clone https://github.com/kwonghung-YIP/langfuse-demo
    ```
 
-2. Create your GitHub Fine-grained Personal Access Token, the token requires the "Read access to user copilot requests". ([GitHub > Profile Settings > Developer Settings > Personal access tokens > Fine-grained tokens > "Generate new token"](https://github.com/settings/personal-access-tokens)).
+2. Create your GitHub Fine-grained Personal Access Token, the token requires the "Read access to user copilot requests" permission. ([GitHub > Profile Settings > Developer Settings > Personal access tokens > Fine-grained tokens > "Generate new token"](https://github.com/settings/personal-access-tokens)).
 
    ![Add Personal Access Token in GitHub Profile](./copilot/github-create-gh_token.png)
 
@@ -81,15 +81,15 @@ Since Copilot CLI natively support OTLP, therefore we only need to assign the OT
 
    ![Check the trace in Langfuse console](./copilot/hello-agent-trace.png)
 
-10. Run the [cursor-model-pricing](../project-settings/cursor/.cursor/agents/cursor-model-pricing.md) sub-agent in the **`/my-project`** workspace and check the traces.
+10. Run the [copilot-model-pricing](../project-settings/copilot/.github/agents/copilot-model-pricing.agent.md) sub-agent in the **`/my-project`** workspace and check the traces.
 
-   ![Run the sub-agent cursor-model-pricing](./copilot/run-subagent-copilot-model-pricing.png)
+   ![Run the sub-agent copilot-model-pricing](./copilot/run-subagent-copilot-model-pricing.png)
 
    ![Check the trace in Langfuse console](./copilot/run-subagent-copilot-model-pricing-trace.png)
 
 11. Langfuse also comes with a built-in token usage and cost dashboard.
 
-   ![Built-in token usage and cost dashboard](./cursor/langfuse-token-usage-dashboard.png)
+   ![Built-in token usage and cost dashboard](./copilot/langfuse-token-usage-dashboard.png)
 
 12. Run [**`./clear-up.sh`**](./clear-up.sh) to clean up the Docker stack.
 
@@ -97,5 +97,4 @@ Since Copilot CLI natively support OTLP, therefore we only need to assign the OT
 
 - [Self Hosting Langfuse with Docker Compose](https://langfuse.com/self-hosting/deployment/docker-compose)
 - [Langfuse Headless Initialization](https://langfuse.com/self-hosting/administration/headless-initialization)
-- [Cursor Tracing with Langfuse](https://langfuse.com/integrations/developer-tools/cursor)
-- [Langfuse Observability Plugin for Cursor - GitHub Repo](https://github.com/langfuse/cursor-observability-plugin)
+- [Trace GitHub Copilot With Langfuse](https://langfuse.com/integrations/developer-tools/github-copilot)
