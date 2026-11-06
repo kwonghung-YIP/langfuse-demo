@@ -1,4 +1,4 @@
-# Cursor CLI and self-hosting Langfuse Demo
+# Cursor CLI pushes OpenTelementry data to self-hosting Langfuse Server
 
 ## About this demo
 
@@ -16,9 +16,9 @@ Because Cursor CLI does not natively support OTLP, Langfuse provides a [Cursor p
    git clone https://github.com/kwonghung-YIP/langfuse-demo
    ```
 
-2. Create your Cursor API token ([Settings > API Keys > Add...](https://cursor.com/dashboard/api)).
+2. Create your Cursor API token ([Cursor > Settings > API Keys > The "Add..." button](https://cursor.com/dashboard/api)).
 
-   [![Add API Key in Cursor Console](./cursor/cursor-console-add-api-key.png)
+   ![Add API Key in Cursor Console](./cursor/cursor-console-add-api-key.png)
 
 3. Paste the token into the **`.env`** file in the repo root folder, and create the **`CURSOR_API_KEY`** environment variable.
 
@@ -38,17 +38,17 @@ Because Cursor CLI does not natively support OTLP, Langfuse provides a [Cursor p
    #!/bin/bash
 
    docker compose \
-     --profile cursor \
-     --env-file .env --env-file demo.env \
-     up \
-     --build --detach --remove-orphans
+   --profile cursor \
+   --env-file .env --env-file demo.env \
+   up \
+   --build --detach --remove-orphans
 
    docker compose \
-     exec -it cursor-cli \
-     bash
+   exec -it cursor-cli \
+   bash
    ```
 
-   After `./demo-cursor.sh` completes, you should be attached to the Cursor CLI container.
+   - After `./demo-cursor.sh` completes, your terminal should be attached to the Cursor CLI container.
 
    ![Attached to Cursor CLI container after the ./demo-cursor.sh completed.](./cursor/after-demo-cursor.sh.png)
 
@@ -58,7 +58,7 @@ Because Cursor CLI does not natively support OTLP, Langfuse provides a [Cursor p
 
 6. Go back to the Cursor CLI container and run [**`setup-langfuse-plugin.sh`**](../cursor-cli/setup-langfuse-plugin.sh) to complete the plugin setup.
 
-   [![Run setup-langfuse-plugin.sh to complete the plugin setup](./cursor/after-setup-langfuse-plugin.sh.png)](./cursor/after-setup-langfuse-plugin.sh.png)
+   ![Run setup-langfuse-plugin.sh to complete the plugin setup](./cursor/after-setup-langfuse-plugin.sh.png)
 
 7. Run **`agent`** to start Cursor CLI, and trust the **`/my-project`** workspace.
 
@@ -72,17 +72,17 @@ Because Cursor CLI does not natively support OTLP, Langfuse provides a [Cursor p
 
    ![Say hello to agent](./cursor/hello-agent.png)
 
-   ![Check the trace in Langfuse console](https://github.com/kwonghung-YIP/langfuse-demo/raw/main/doc/cursor/hello-agent-trace.png)
+   ![Check the trace in Langfuse console](./cursor/hello-agent-trace.png)
 
-10. Run the [cursor-model-pricing](https://github.com/kwonghung-YIP/langfuse-demo/blob/main/project-settings/cursor/.cursor/agents/cursor-model-pricing.md) sub-agent in the **`/my-project`** workspace and check the traces.
+10. Run the [cursor-model-pricing](../project-settings/cursor/.cursor/agents/cursor-model-pricing.md) sub-agent in the **`/my-project`** workspace and check the traces.
 
-    ![Run the sub-agent cursor-model-pricing](./cursor/run-subagent-cursor-model-pricing.png)
+   ![Run the sub-agent cursor-model-pricing](./cursor/run-subagent-cursor-model-pricing.png)
 
-    ![Check the trace in Langfuse console](./cursor/run-sunagent-cursor-model-pricing-trace.png)
+   ![Check the trace in Langfuse console](./cursor/run-sunagent-cursor-model-pricing-trace.png)
 
 11. Langfuse also comes with a built-in token usage and cost dashboard.
 
-    ![Built-in token usage and cost dashboard](./cursor/langfuse-token-usage-dashboard.png)
+   ![Built-in token usage and cost dashboard](./cursor/langfuse-token-usage-dashboard.png)
 
 12. Run [**`./clear-up.sh`**](./clear-up.sh) to clean up the Docker stack.
 
