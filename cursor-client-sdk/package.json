@@ -1,0 +1,33 @@
+{
+  "name": "langfuse-cursor-sdk-demo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc",
+    "lint": "eslint .",
+    "helloworld": "tsx --env-file .env src/helloworld.ts",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Kwong Hung YIP",
+  "license": "ISC",
+  "type": "module",
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@types/node": "^26.6.6",
+    "eslint": "^10.14.0",
+    "tsx": "^4.23.15",
+    "typescript": "^6.0.3",
+    "typescript-eslint": "^8.72.1"
+  },
+  "dependencies": {
+    "@cursor/sdk": "^1.3.1",
+    "@langfuse/client": "^6.1.1",
+    "@langfuse/otel": "^6.1.1",
+    "@langfuse/tracing": "^6.1.1",
+    "@opentelemetry/exporter-trace-otlp-http": "^0.223.0",
+    "@opentelemetry/sdk-node": "^0.223.0",
+    "dotenv": "^18.0.9"
+  }
+}

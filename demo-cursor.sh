@@ -8,4 +8,6 @@ docker compose \
 
 docker compose \
   exec -it cursor-cli \
-  bash -c "source /root/.nvm/nvm.sh && setup-langfuse-plugin.sh && exec bash"
+  bash
+
+  #bash -c "source /root/.nvm/nvm.sh && setup-langfuse-plugin.sh && exec bash"

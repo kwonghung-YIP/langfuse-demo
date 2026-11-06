@@ -11,8 +11,8 @@ fi
 
 npm install -g ~/.cursor/plugins/local/langfuse-observability
 
-echo "Waiting for langfuse server started..."
-sleep 30s
+#echo "Waiting for langfuse server started..."
+#sleep 30s
 
 langfuse-cursor-hook setup \
   --hooks \
